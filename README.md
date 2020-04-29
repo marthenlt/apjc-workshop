@@ -1,70 +1,9 @@
 Table of Contents:
 
-* [Exercise 0: Connect to your Virtual Machine](#exercise-0-connect-to-your-virtual-machine)
 * [Exercise 1: GraalVM](#exercise-1-graalvm)
 * [Exercise 2: Microservices](#exercise-2-microservices)
 * [Exercise 3: SpringBoot](#exercise-3-springboot)
 * [Appendix: VNC](#appendix-vnc)
-
-# Exercise 0: Connect to your Virtual Machine
-
-> As you make your way through this lab, look out for this icon.
-![user input](images/userinput.png) Whenever you see it, it's time for you to
-perform an action.
-
-To save you the trouble of having to install all of the software we're working
-with in this lab on your laptop, we've set up OCI virtual machines in the cloud
-for you to work with. The first step is connecting to your virtual machine via
-SSH.
-
-a. Ensure you are connected to the internet.
-b. ![user input](images/userinput.png) Download this [SSH key](https://raw.githubusercontent.com/ostrain/graalvm-fn/master/key.txt) to your Desktop, or copy it into a file on
-   your desktop from here:
-   ```
-   -----BEGIN RSA PRIVATE KEY-----
-   MIIEowIBAAKCAQEAywdqSGo9GT71U2Hxg72sxY/Fpm2UlGnxFHeqsENwafujOFI1
-   QXWqwyCI1ysdeOWtcASaGEh0Or72dGbBdAak2vsiwJzgQC924S/0eXsM5B0utte1
-   hN91Bkuuv6OZgGUNjHr4zNem02YLyu4AH+G62bXJmpw7OJFjx2xK7ss/ncziLp3C
-   c0nMOgPdxz2ZW26yZN9OgdfMle7bV92syaUgCm9SJVEDp47PEaDI6pR2dKzu14AT
-   4l8DkWqv/G77lLpwRpD0pFNrLRITRYadEu1HmEBYB4sm4T2roUiQGtdyyAZReJdF
-   qr+l2laVgqaY35LEht6JyrBVEU5T8/IJSOHw0wIDAQABAoIBAB/3r+1tBOfHuPsD
-   DfMPV3fX9mgJEv73W2U8nlyYkceuPnnsv8Pp0hRdOA6hFEfn6hIcN2MhbWOek9Gq
-   KEWrkiOErWkkik6w6of0dAr4rAPy8FsLxeIBCT0Ph5lXGiFUR/jZl/kw72yTwcGX
-   Dd/3O+Nxsyer98slYU+SJo5I5GBlDVZJzmbKJM95hwq9J/Jhk5oU5+Xb0YKG1fJF
-   tnEXIi/Zmi1qMz2WlVxw5ijro2c9xHrIdD75Cl7p6FFOPR/dGw/0yfH1AKnnLoDu
-   fh/dnUigZUqHY5oh5+xUiYT7qYME2gBbRq99eTwD95Ri7Mv+s/62isDnQHIqLzYC
-   SBgHWGkCgYEA69WTfB0VlMrcl2p095EanGJHGFKrtPIXGQ99jdfgCHsbmgD9ClxY
-   iYxwonJRojBdfS1FveZHinpIJkM6Io+ikZMtRwDCo2NaSBcPpgsWubkM6d81ozRR
-   tVA3D3fRxxmw6xzO+gb6OzOmniu43oFx3ysZURPS6WlfkAoQRN4rayUCgYEA3GO6
-   pZZFZN5DRV0NPE9QfTjwCN1ioyexJR4V04Ge55rxU+PQ99XYy0NKO+isgXvHM7qg
-   xReF3N8o6HZVXHQOccoXyowZEEGY0ov+RQt3dYdWNslf5+oDQY4pGWUx0VLUl9Jc
-   U868V+7szpH8QuQ05FS8ejKvPjiZz7FhZ6yxZpcCgYAkziw6Tn+zvQU4TFD84hR5
-   G41k6mIJ105rhtNdc7dvG2dvXYAgQdE/hj992sGKwmmUw6ACxxGbNwJTlmJYSnpg
-   pcuHLUMzJKpOXer/SvO9AHhXd5JzahLmbSJqs5R1sji+OLzEoJok6yaxwLkVYLZY
-   0e0dji54Zw2W+TsYxGOaUQKBgQC5SPcQY6fvx5US6cpI2/21aXsUWNumg6ZAqGx9
-   J0qrOO6PMsbqtdTP/sCYYWM2cRPmf47OZJpcORmxZlsZoVDLhbY+yU4BBsUurheV
-   gLBsFN38rYx985XNNXGEMjmR3GtzQJ3yr6pU20An40AMFMQK+tqCeb4vN3LI1D4p
-   5Vw3/QKBgE9omsh+VXJc6zPVziDop4QEXXAksRd2YeDYpUE9MBnGmZXnOb0TiVn6
-   DlvkbMBfaPucKAfZwKIuhfmu7Sf4J6aqKLzaDrAIw7Dzh6i0GAWj+N7i7nb8Fpzv
-   u2cEAy1Je+k77/+5CSCO1yBSX5Eohy9PBfxI2gmtQ3G5TgJ/pp/y
-   -----END RSA PRIVATE KEY-----
-   ```
-c. Open a terminal and modify the permissions of the downloaded key:
-
-   ![user input](images/userinput.png)
-   >```sh
-   >chmod 400 ~/Desktop/key.txt
-   >```
-d. Connect to your assigned VM via its IP address:
-
-   ![user input](images/userinput.png)
-   >```sh
-   >ssh -i ~/Desktop/key.txt -L 3000:localhost:3000 opc@<IP address>
-   >```
-
-   Note that we're also setting up SSH port-forwarding on port 3000 to your VM.
-   You will use this later to access one of the examples using the your browser
-   on your laptop.
 
 # Exercise 1: GraalVM
 
@@ -601,7 +540,7 @@ Then build a docker image from it:
 
 ![user input](images/userinput.png)
 >```sh
-> ./docker-build.sh
+> sudo ./docker-build.sh
 >```
 
 The previous command will create the image micronaut-graal-app:latest. To execute it:
@@ -610,7 +549,7 @@ Execute the native image:
 
 ![user input](images/userinput.png)
 >```sh
-> docker run -p 3000:8080 --name=micronaut micronaut-graal-app &
+> sudo docker run -p 3000:8080 --name=micronaut micronaut-graal-app &
 >```
 
 ```
